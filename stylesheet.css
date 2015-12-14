@@ -1,10 +1,9 @@
 form {
-	color: red;
 	line-height: 25px;
 }
 li {
 	list-style-type: none;
 }
-.container {
+#container {
 	border-bottom: 5px black;
 }
