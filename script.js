@@ -1,6 +1,6 @@
 
 var employeeArray = [];
-
+var salarySum = 0;
 
 $(document).ready(function(){
 	$("#employeedata").on('submit',function(event){
@@ -16,28 +16,35 @@ $(document).ready(function(){
 		console.log(values);
 		appendDom(values);
 
+		salarySum += parseInt(values.employeesalary);
+
 		// employeeArray.push(values);
 
 		// function payroll(array){
 		// totalPayroll += parseInt(array[2]/12);
 		// };
 		
-		console.log(employeeArray);
+		// console.log(employeeArray);
 		// console.log(payroll(employeeArray));
 		// console.log(totalPayroll);
-		var totalPayroll = 0;
-		var payroll = function(array){
-			for (i = 0; i < employeeArray.length; i++) {
-				totalPayroll += (parseInt(employeeArray[i].emoloyeesalary)/12);
-			}
-			return totalPayroll;
-		};
+		// var payroll = function(array){
+		// 	var totalPayroll = 0;
+		// 	console.log(typeof totalPayroll);
+		// 	for (i = 0; i < employeeArray.length; i++) {
+		// 		totalPayroll += (parseInt(employeeArray[i].emoloyeesalary)/12);
+		// 	console.log(typeof totalPayroll);
+
+		// 	}
+		// 	console.log(typeof totalPayroll);
+
+		// 	return totalPayroll;
+		// };
 //I've moved this damn function around and changed it so many times... I simply cannot get it to work properly. So I'm going to cry myself to sleep and hopefully get some rest and look at it again in the morning. Transcendence through suffering!
 		employeeArray.push(values);
 		console.log(employeeArray);
-		console.log(payroll(employeeArray));
-		console.log(totalPayroll);
-		
+		// console.log(payroll(employeeArray));
+		console.log(salarySum);
+		return salarySum;
 	})
 });
 
@@ -49,14 +56,14 @@ function appendDom(object){
 	$el.append("<p>" + object.employeenumber + "</p>");
 	$el.append("<p>" + object.employeetitle + "</p>");
 	$el.append("<p>" + object.employeesalary + "</p>");
-	// $el.apend("<p>" + totalPayroll + "</p>");
+	// $el.append("<p>" + salarySum + "</p>");
 
 	// function payroll(object){
 	// 	totalPayroll += parseInt(object.employeesalary);
 	// };
 
 	// $el.apend("<p>" + totalPayroll + "</p>");
-}
+};
 
 
 // function payroll(array){
@@ -69,6 +76,15 @@ function appendDom(object){
 
 // 	console.log(totalPayroll);
 // };
+
+//why won't it woooooorrrrrk!!!
+
+function totalSalary(input){
+	$("#container").append("<div></div>");
+	var $la = $("#container").children().last();
+
+	$la.append("<p> Total monthly payroll is " + (salarySum/12) + "</p>");
+};
 
 
 
